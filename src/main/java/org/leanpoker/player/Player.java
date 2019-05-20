@@ -34,6 +34,8 @@ public class Player {
                 //System.err.println(card2);
             }
         }
+        String rank1 = card1.get("rank");
+        String rank2 = card2.get("rank");
 
         int currentBuyIn = request.getAsJsonObject().get("current_buy_in").getAsInt();
         System.err.println(currentBuyIn);
@@ -43,33 +45,27 @@ public class Player {
             return 1000;
         }
         if (card1.get("rank").equals("K") && card2.get("rank").equals("K")) {
-            return Math.max(1000, currentBuyIn);
+            return Math.max(800, currentBuyIn);
         }
         if (card1.get("rank").equals("Q") && card2.get("rank").equals("Q")) {
-            return Math.max(1000, currentBuyIn);
+            return Math.max(600, currentBuyIn);
         }
         if (card1.get("rank").equals("J") && card2.get("rank").equals("J")) {
-            return Math.max(1000, currentBuyIn);
+            return Math.max(400, currentBuyIn);
         }
-        String rank1 = card1.get("rank");
-        String rank2 = card2.get("rank");
 
-        if (rank1.equals("J") && rank2.equals("J") ||
-                rank1.equals("J") && rank2.equals("Q") ||
+        if (rank1.equals("J") && rank2.equals("Q") ||
                 rank1.equals("J") && rank2.equals("K") ||
                 rank1.equals("J") && rank2.equals("A") ||
                 rank1.equals("Q") && rank2.equals("J") ||
-                rank1.equals("Q") && rank2.equals("Q") ||
                 rank1.equals("Q") && rank2.equals("K") ||
                 rank1.equals("Q") && rank2.equals("A") ||
                 rank1.equals("K") && rank2.equals("J") ||
                 rank1.equals("K") && rank2.equals("Q") ||
-                rank1.equals("K") && rank2.equals("K") ||
                 rank1.equals("K") && rank2.equals("A") ||
                 rank1.equals("A") && rank2.equals("J") ||
                 rank1.equals("A") && rank2.equals("Q") ||
-                rank1.equals("A") && rank2.equals("K") ||
-                rank1.equals("A") && rank2.equals("A")) {
+                rank1.equals("A") && rank2.equals("K")) {
             return currentBuyIn;
         }
 
