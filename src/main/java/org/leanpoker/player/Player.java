@@ -16,6 +16,7 @@ public class Player {
         Gson gson = builder.create();
         PlayerInformation playerInformation = gson.fromJson(request, PlayerInformation.class);
         System.err.println(playerInformation.name);
+        //System.err.println(request.getAsJsonObject().get("players"));
         return 0;
     }
 
