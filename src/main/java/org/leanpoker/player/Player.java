@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "1.7";
+    static final String VERSION = "1.8";
     private static Map<String, String> card1;
     private static Map<String, String> card2;
 
@@ -92,7 +92,7 @@ public class Player {
             System.err.println(currentBuyIn);
             return currentBuyIn;
         }*/
-        return 7;
+        return 0;
     }
 
     public static void showdown(JsonElement game) {
