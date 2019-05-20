@@ -42,7 +42,7 @@ public class Player {
         highValueCards.add("K");
         highValueCards.add("A");
 
-        if (card1.get("suit").equals("A") && card2.get("suit").equals("A")) {
+        if (card1.get("rank").equals("A") && card2.get("rank").equals("A")) {
             System.err.println("ACE PAIR!!!!");
             return 1000;
         }
