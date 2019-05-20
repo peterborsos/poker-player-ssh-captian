@@ -38,6 +38,8 @@ public class Player {
         }
         System.err.println(card1.get("rank"));
         System.err.println(card2.get("rank"));
+        System.err.println(request.getAsJsonObject().get("current_buy_in").getAsInt());
+
         List<String> highValueCards = new ArrayList<>();
         highValueCards.add("J");
         highValueCards.add("Q");
