@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "2.3";
+    static final String VERSION = "2.4";
     private static Map<String, String> card1;
     private static Map<String, String> card2;
 
@@ -65,7 +65,7 @@ public class Player {
 
             return 100;
         }
-        return 0;
+        return 100;
     }
 
     public static void showdown(JsonElement game) {
