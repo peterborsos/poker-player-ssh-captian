@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "1.4";
+    static final String VERSION = "1.5";
     private static Map<String, String> card1;
     private static Map<String, String> card2;
 
