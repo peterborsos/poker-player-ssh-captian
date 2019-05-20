@@ -36,9 +36,9 @@ public class Player {
                 //System.err.println(card2);
             }
         }
-        System.err.println(card1.get("rank"));
-        System.err.println(card2.get("rank"));
-        System.err.println(request.getAsJsonObject().get("current_buy_in").getAsInt());
+        //System.err.println(card1.get("rank"));
+        //System.err.println(card2.get("rank"));
+        System.err.println(request.getAsJsonObject().get("current_buy_in"));
 
         List<String> highValueCards = new ArrayList<>();
         highValueCards.add("J");
@@ -46,7 +46,7 @@ public class Player {
         highValueCards.add("K");
         highValueCards.add("A");
 
-        if (card1.get("rank").equals("A") && card2.get("rank").equals("A")) {
+        /*if (card1.get("rank").equals("A") && card2.get("rank").equals("A")) {
             System.err.println("ACE PAIR!!!!");
             return 1000;
         }
@@ -55,7 +55,7 @@ public class Player {
             System.err.println("We have two high cards!!!!!!!!!!!!!!!!");
             System.err.println(request.getAsJsonObject().get("current_buy_in").getAsInt());
             return request.getAsJsonObject().get("current_buy_in").getAsInt();
-        }
+        }*/
         return 6;
     }
 
