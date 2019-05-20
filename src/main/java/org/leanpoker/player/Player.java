@@ -12,7 +12,10 @@ public class Player {
         JsonArray players = request.getAsJsonObject().get("players").getAsJsonArray();
         for (JsonElement player : players) {
             player.getAsJsonObject();
-            System.err.println(player);
+            //System.err.println(player);
+            if (player.getAsJsonObject().get("name").equals("SSH Captian")) {
+                System.err.println(player);
+            }
         }
         return 0;
     }
