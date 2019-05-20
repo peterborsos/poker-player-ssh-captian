@@ -3,6 +3,8 @@ package org.leanpoker.player;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
+import java.util.List;
+
 public class Player {
 
     static final String VERSION = "1.3";
@@ -14,7 +16,8 @@ public class Player {
             player.getAsJsonObject();
             //System.err.println(player);
             if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
-                System.err.println(player);
+                JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
+                System.err.println(ownCards);
             }
         }
         return 0;
