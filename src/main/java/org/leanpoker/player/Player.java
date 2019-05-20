@@ -63,7 +63,7 @@ public class Player {
                 rank1.equals("A") && rank2.equals("Q") ||
                 rank1.equals("A") && rank2.equals("K")) {
 
-            return 100;
+            return 200;
         }
         return 100;
     }
