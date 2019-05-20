@@ -49,6 +49,8 @@ public class Player {
 
         if (highValueCards.indexOf(card1.get("rank")) > -1 &&
                 highValueCards.indexOf(card2.get("rank")) > -1) {
+            System.err.println("We have two high cards!!!!!!!!!!!!!!!!");
+            System.err.println(request.getAsJsonObject().get("current_buy_in").getAsInt());
             return request.getAsJsonObject().get("current_buy_in").getAsInt();
         }
         return 6;
