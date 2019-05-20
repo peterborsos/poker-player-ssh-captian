@@ -49,13 +49,37 @@ public class Player {
             System.err.println("ACE PAIR!!!!");
             return 1000;
         }
-        if ((highValueCards.indexOf(card1.get("rank")) > -1) &&
-                (highValueCards.indexOf(card2.get("rank")) > -1)) {
-            System.err.println("We have two high cards!!!!!!!!!!!!!!!!");
+        String rank1 = card1.get("rank");
+        String rank2 = card2.get("rank");
+
+        if (rank1.equals("J") && rank2.equals("J") ||
+                rank1.equals("J") && rank2.equals("Q") ||
+                rank1.equals("J") && rank2.equals("K") ||
+                rank1.equals("J") && rank2.equals("A") ||
+                rank1.equals("Q") && rank2.equals("J") ||
+                rank1.equals("Q") && rank2.equals("Q") ||
+                rank1.equals("Q") && rank2.equals("K") ||
+                rank1.equals("Q") && rank2.equals("A") ||
+                rank1.equals("K") && rank2.equals("J") ||
+                rank1.equals("K") && rank2.equals("Q") ||
+                rank1.equals("K") && rank2.equals("K") ||
+                rank1.equals("K") && rank2.equals("A") ||
+                rank1.equals("A") && rank2.equals("J") ||
+                rank1.equals("A") && rank2.equals("Q") ||
+                rank1.equals("A") && rank2.equals("K") ||
+                rank1.equals("A") && rank2.equals("A")) {
             int currentBuyIn = request.getAsJsonObject().get("current_buy_in").getAsInt();
             System.err.println(currentBuyIn);
             return currentBuyIn;
         }
+
+        /*if (highValueCards.indexOf(card1.get("rank")) > -1 &&
+                highValueCards.indexOf(card2.get("rank")) > -1) {
+            System.err.println("We have two high cards!!!!!!!!!!!!!!!!");
+            int currentBuyIn = request.getAsJsonObject().get("current_buy_in").getAsInt();
+            System.err.println(currentBuyIn);
+            return currentBuyIn;
+        }*/
         return 6;
     }
 
