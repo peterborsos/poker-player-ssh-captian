@@ -9,7 +9,7 @@ public class Player {
     static final String VERSION = "1.0";
 
     public static int betRequest(JsonElement request) {
-        System.err.println("próba SSH captain");
+        System.err.println(request.getAsJsonObject().get("players"));
         return 0;
     }
 
