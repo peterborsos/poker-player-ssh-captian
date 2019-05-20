@@ -49,6 +49,18 @@ public class Player {
             System.err.println("ACE PAIR!!!!");
             return 1000;
         }
+        if (card1.get("rank").equals("K") && card2.get("rank").equals("K")) {
+            System.err.println("ACE PAIR!!!!");
+            return 800;
+        }
+        if (card1.get("rank").equals("Q") && card2.get("rank").equals("Q")) {
+            System.err.println("ACE PAIR!!!!");
+            return 600;
+        }
+        if (card1.get("rank").equals("J") && card2.get("rank").equals("J")) {
+            System.err.println("ACE PAIR!!!!");
+            return 400;
+        }
         String rank1 = card1.get("rank");
         String rank2 = card2.get("rank");
 
