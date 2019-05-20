@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "Default Java folding player";
+    static final String VERSION = "SSH Captian";
 
     public static int betRequest(JsonElement request) {
-        return 0;
-    }
+        request.getAsJsonArray();
+        return 0;}
 
     public static void showdown(JsonElement game) {
     }
