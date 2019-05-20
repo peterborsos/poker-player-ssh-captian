@@ -56,7 +56,7 @@ public class Player {
             System.err.println(currentBuyIn);
             return currentBuyIn;
         }
-        return 6;
+        return 7;
     }
 
     public static void showdown(JsonElement game) {
