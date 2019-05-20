@@ -18,7 +18,7 @@ public class Player {
             //System.err.println(player);
             if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
                 JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
-                System.err.println(ownCards);
+                //System.err.println(ownCards);
 
                 Map<String, String> card1 = new HashMap<>();
                 card1.put("rank", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("rank").toString());
