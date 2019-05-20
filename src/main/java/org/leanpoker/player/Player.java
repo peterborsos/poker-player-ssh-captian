@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "2.0";
+    static final String VERSION = "2.1";
     private static Map<String, String> card1;
     private static Map<String, String> card2;
 
