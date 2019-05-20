@@ -3,14 +3,12 @@ package org.leanpoker.player;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "1.8";
+    static final String VERSION = "1.9";
     private static Map<String, String> card1;
     private static Map<String, String> card2;
 
@@ -36,30 +34,22 @@ public class Player {
                 //System.err.println(card2);
             }
         }
-        //System.err.println(card1.get("rank"));
-        //System.err.println(card2.get("rank"));
 
-        List<String> highValueCards = new ArrayList<>();
-        highValueCards.add("J");
-        highValueCards.add("Q");
-        highValueCards.add("K");
-        highValueCards.add("A");
+        int currentBuyIn = request.getAsJsonObject().get("current_buy_in").getAsInt();
+        System.err.println(currentBuyIn);
 
         if (card1.get("rank").equals("A") && card2.get("rank").equals("A")) {
             System.err.println("ACE PAIR!!!!");
             return 1000;
         }
         if (card1.get("rank").equals("K") && card2.get("rank").equals("K")) {
-            System.err.println("ACE PAIR!!!!");
-            return 800;
+            return Math.max(1000, currentBuyIn);
         }
         if (card1.get("rank").equals("Q") && card2.get("rank").equals("Q")) {
-            System.err.println("ACE PAIR!!!!");
-            return 600;
+            return Math.max(1000, currentBuyIn);
         }
         if (card1.get("rank").equals("J") && card2.get("rank").equals("J")) {
-            System.err.println("ACE PAIR!!!!");
-            return 400;
+            return Math.max(1000, currentBuyIn);
         }
         String rank1 = card1.get("rank");
         String rank2 = card2.get("rank");
@@ -80,18 +70,9 @@ public class Player {
                 rank1.equals("A") && rank2.equals("Q") ||
                 rank1.equals("A") && rank2.equals("K") ||
                 rank1.equals("A") && rank2.equals("A")) {
-            int currentBuyIn = request.getAsJsonObject().get("current_buy_in").getAsInt();
-            System.err.println(currentBuyIn);
             return currentBuyIn;
         }
 
-        /*if (highValueCards.indexOf(card1.get("rank")) > -1 &&
-                highValueCards.indexOf(card2.get("rank")) > -1) {
-            System.err.println("We have two high cards!!!!!!!!!!!!!!!!");
-            int currentBuyIn = request.getAsJsonObject().get("current_buy_in").getAsInt();
-            System.err.println(currentBuyIn);
-            return currentBuyIn;
-        }*/
         return 0;
     }
 
