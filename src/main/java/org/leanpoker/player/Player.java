@@ -1,21 +1,14 @@
 package org.leanpoker.player;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Player {
 
     static final String VERSION = "1.3";
-    private static List<Map<String, String>> ownHand = new ArrayList<>();
 
     public static int betRequest(JsonElement request) {
         //System.err.println(request.getAsJsonObject().get("players"));
@@ -26,6 +19,15 @@ public class Player {
             if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
                 JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
                 System.err.println(ownCards);
+
+                Map<String, String> card1 = new HashMap<>();
+                card1.put("rank", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("rank").toString());
+                card1.put("suit", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("suit").toString());
+
+                System.err.println(card1);
+
+
+
                 /*Type listType = new TypeToken<List<JsonObject>>(){}.getType();
                 List<JsonObject> cardList = new Gson().fromJson(player, listType);
 
