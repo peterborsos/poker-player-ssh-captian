@@ -32,8 +32,8 @@ public class Player {
                 card2.put("rank", ownCards.getAsJsonArray().get(1).getAsJsonObject().get("rank").toString());
                 card2.put("suit", ownCards.getAsJsonArray().get(1).getAsJsonObject().get("suit").toString());
 
-                System.err.println(card1);
-                System.err.println(card2);
+                //System.err.println(card1);
+                //System.err.println(card2);
             }
         }
         System.err.println(card1.get("rank"));
@@ -48,9 +48,8 @@ public class Player {
             System.err.println("ACE PAIR!!!!");
             return 1000;
         }
-
-        if (highValueCards.indexOf(card1.get("rank")) > -1 &&
-                highValueCards.indexOf(card2.get("rank")) > -1) {
+        if ((highValueCards.indexOf(card1.get("rank")) > -1) &&
+                (highValueCards.indexOf(card2.get("rank")) > -1)) {
             System.err.println("We have two high cards!!!!!!!!!!!!!!!!");
             System.err.println(request.getAsJsonObject().get("current_buy_in").getAsInt());
             return request.getAsJsonObject().get("current_buy_in").getAsInt();
