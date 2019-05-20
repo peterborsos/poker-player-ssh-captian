@@ -3,12 +3,16 @@ package org.leanpoker.player;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "1.3";
+    static final String VERSION = "1.4";
+    private static Map<String, String> card1;
+    private static Map<String, String> card2;
 
     public static int betRequest(JsonElement request) {
         //System.err.println(request.getAsJsonObject().get("players"));
@@ -20,34 +24,27 @@ public class Player {
                 JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
                 //System.err.println(ownCards);
 
-                Map<String, String> card1 = new HashMap<>();
+                card1 = new HashMap<>();
                 card1.put("rank", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("rank").toString());
                 card1.put("suit", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("suit").toString());
 
-                Map<String, String> card2 = new HashMap<>();
+                card2 = new HashMap<>();
                 card2.put("rank", ownCards.getAsJsonArray().get(1).getAsJsonObject().get("rank").toString());
                 card2.put("suit", ownCards.getAsJsonArray().get(1).getAsJsonObject().get("suit").toString());
 
                 System.err.println(card1);
                 System.err.println(card2);
-
-
-
-                /*Type listType = new TypeToken<List<JsonObject>>(){}.getType();
-                List<JsonObject> cardList = new Gson().fromJson(player, listType);
-
-                Type mapType = new TypeToken<Map<String, String>>(){}.getType();
-                Map<String, String> card1 = new Gson().fromJson(cardList.get(0), mapType);
-                Map<String, String> card2 = new Gson().fromJson(cardList.get(1), mapType);
-
-                ownHand.add(card1);
-                ownHand.add(card2);
-
-                System.err.println(ownHand);
-                System.err.println(ownHand.get(0));
-                System.err.println(ownHand.get(1));*/
-
             }
+        }
+        List<String> highValueCards = new ArrayList<>();
+        highValueCards.add("J");
+        highValueCards.add("Q");
+        highValueCards.add("K");
+        highValueCards.add("A");
+
+        if (highValueCards.indexOf(card1.get("rank")) > -1 &&
+                highValueCards.indexOf(card2.get("rank")) > -1) {
+            return request.getAsJsonObject().get("current_buy_in").getAsInt();
         }
         return 6;
     }
