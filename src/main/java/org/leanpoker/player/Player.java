@@ -13,7 +13,7 @@ public class Player {
         for (JsonElement player : players) {
             player.getAsJsonObject();
             //System.err.println(player);
-            if (player.getAsJsonObject().get("name").equals("SSH Captian")) {
+            if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
                 System.err.println(player);
             }
         }
