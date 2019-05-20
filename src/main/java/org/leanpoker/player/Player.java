@@ -26,7 +26,7 @@ public class Player {
             if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
                 JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
                 //System.err.println(ownCards);
-                Type listType = new TypeToken<List<JsonObject>>(){}.getType();
+                /*Type listType = new TypeToken<List<JsonObject>>(){}.getType();
                 List<JsonObject> cardList = new Gson().fromJson(player, listType);
 
                 Type mapType = new TypeToken<Map<String, String>>(){}.getType();
@@ -34,7 +34,7 @@ public class Player {
                 Map<String, String> card2 = new Gson().fromJson(cardList.get(1), mapType);
 
                 ownHand.add(card1);
-                ownHand.add(card2);
+                ownHand.add(card2);*/
 
                 System.err.println(ownHand);
                 System.err.println(ownHand.get(0));
@@ -42,7 +42,7 @@ public class Player {
 
             }
         }
-        return 0;
+        return 6;
     }
 
     public static void showdown(JsonElement game) {
