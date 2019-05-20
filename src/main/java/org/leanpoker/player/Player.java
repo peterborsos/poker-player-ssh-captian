@@ -18,13 +18,18 @@ public class Player {
             //System.err.println(player);
             if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
                 JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
-                System.err.println(ownCards);
+                //System.err.println(ownCards);
 
                 Map<String, String> card1 = new HashMap<>();
                 card1.put("rank", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("rank").toString());
                 card1.put("suit", ownCards.getAsJsonArray().get(0).getAsJsonObject().get("suit").toString());
 
+                Map<String, String> card2 = new HashMap<>();
+                card2.put("rank", ownCards.getAsJsonArray().get(1).getAsJsonObject().get("rank").toString());
+                card2.put("suit", ownCards.getAsJsonArray().get(1).getAsJsonObject().get("suit").toString());
+
                 System.err.println(card1);
+                System.err.println(card2);
 
 
 
