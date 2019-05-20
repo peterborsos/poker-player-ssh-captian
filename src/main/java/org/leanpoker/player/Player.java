@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Player {
 
-    static final String VERSION = "2.1";
+    static final String VERSION = "2.2";
     private static Map<String, String> card1;
     private static Map<String, String> card2;
 
@@ -66,7 +66,8 @@ public class Player {
                 rank1.equals("A") && rank2.equals("J") ||
                 rank1.equals("A") && rank2.equals("Q") ||
                 rank1.equals("A") && rank2.equals("K")) {
-            return currentBuyIn;
+
+            return Math.max(100, currentBuyIn);
         }
 
         return 0;
