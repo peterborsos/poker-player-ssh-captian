@@ -17,7 +17,7 @@ public class Player {
             //System.err.println(player);
             if (player.getAsJsonObject().get("name").getAsString().equals("SSH Captian")) {
                 JsonElement ownCards = player.getAsJsonObject().get("hole_cards");
-                System.err.println(ownCards.getAsJsonObject().get("suit"));
+                System.err.println(ownCards.getAsJsonObject());
             }
         }
         return 0;
